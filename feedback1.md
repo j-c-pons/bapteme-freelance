@@ -2,17 +2,13 @@
 
 ## Étape 1 : Détail d'une carte
 
-Il n'était pas nécessaire d'afficher les values north/east/south/west puisqu'elles apparaissent déjà sur la carte (même si en terme de code il n'y a pas de problème).
+Dans la view card-item, il n'était pas nécessaire d'afficher les values north/east/south/west puisqu'elles apparaissent déjà sur la carte (même si en terme de code il n'y a pas de problème).
 
-Il n'y a pas de gestion d'erreur côté serveur si l'ID requis n'existe pas > seule une erreur 404 est renvoyée côté front.
 
 ## Étape 2 : Recherche
 Ligne 22 dans searchController: 
-
-"quote
-title: 'Résultat de la recherche : ' + (searchedElement === 'null' ? ' sans élément' : + searchedElement),
-"quote
-Il faut enlever le 2nd "+" sinon ça renvoie NaN.
+```title: 'Résultat de la recherche : ' + (searchedElement === 'null' ? ' sans élément' : + searchedElement)```
+Il faut enlever le 2nd "+" sinon ça renvoie NaN comme titre du résultat de la recherche.
 
 Dans dataMapper.js, il y a une méthode searchByElementNull qui ne sert à rien.
 Pense à supprimer le code en commentaire dans searchController.
@@ -31,6 +27,8 @@ ràs
 ràs
 
 ## Bonus: finir les recherches
-Il n'était pas nécessaire de faire une route et une mathode pour chaque type de recherche, le code aurait été plus simple en définissant une seule méthode/route. Là le searchController est très confus:
-- Trop de code commenté
-- Trop de redondances (searchedResults par exemple, qui est déclaré plus ou moins)
+ràs
+
+## Commentaire additionnel
+
+Pour aller plus loin, je t'invite à remplacer, dans package.json, le script "start" par "dev". Le premier est sensé être utilisé uniquement dans un environnement de production, tandis que l'autre est celui approprié pour les tests. Même si c'est sans conséquence pour l'exercice, c'est une mauvaise pratique qu'il vaut mieux éviter.
