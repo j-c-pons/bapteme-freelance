@@ -1,7 +1,7 @@
 ## Apprenant n°1
 Excellent niveau, c'est assez impressionant.
 
-> :green_circle: RAS
+> :white_check_mark: RAS
 
 
 ## Apprenant n°2
