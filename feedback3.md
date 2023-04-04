@@ -1,24 +1,22 @@
 
 
 ## Étape 1 : Détail d'une carte
-On ne peut pas accéder au détail d'une carte en cliquant dessus, seul le lien dans le nom le permet. Dans la view cardList.ejs, on trouve 2 fois la balise </a> (ligne 11 et 16) Il faut supprimer la première. Inutile également d'afficher card.name puisqu'il apparaît sur l'image de la carte. 
+On ne peut pas accéder au détail d'une carte en cliquant dessus, seul le lien dans le nom le permet. Dans la view cardList.ejs, on trouve 2 fois la balise </a> (ligne 11 et 16). Il faut supprimer la première. Inutile également d'afficher card.name puisqu'il apparaît sur l'image de la carte. 
 
 Plusieurs problèmes dans cardDetails.ejs:
--ligne 8, tu utilises une boucle comme si tu allais afficher plusieurs cartes, alors qu'il n'y en a qu'une.:         
+- ligne 8, tu utilises une boucle comme si tu allais afficher plusieurs cartes, alors qu'il n'y en a qu'une:         
 ```<% for (const singleCard of card) { %>```
 
--Le nom de l'objet renvoyé par le contrôleur qui contient les infos cherchées est oneCard, il faut remplacer ce nom dans l'ensemble de la view.
--La balise img l11 
+- Le nom de l'objet renvoyé par le contrôleur qui contient les infos cherchées est oneCard, il faut remplacer ce nom dans l'ensemble de la view.
+- La balise img l11(ci-dessous)contient plusieurs erreurs de syntaxe: la méthode toLowerCase() et l'extension .jpg n'ont rien à faire ici.
 ```<img src="/visuals/<%= oneCard.visual_name.toLowerCase() %>.jpg" alt="<%= oneCard.name %> illustration">)```
-
-contient plusieurs erreurs de syntaxe: la méthode toLowerCase() et l'extension .jpg n'ont rien à faire ici.
 
 - Certaines informations affichées ne servent à rien (visual_name) et il n'y a aucune indication sur ce à quoi elle correspondent (par exemple, quelle donnée correspond au niveau?)
 
 
 ## Étape 2 : Recherche
 Il y a plusieurs problèmes dans searchController.js:
--La recherche ne fonctionne pas car tu n'as pas importé dataMapper dans searchController.js, alors que tu l'appelle l12:
+- La recherche ne fonctionne pas car tu n'as pas importé dataMapper dans searchController.js, alors que tu l'appelle l12:
 ```const cards = await dataMapper.getElements();```
 
 - Ensuite, la méthode searchElement() ne fonctionne pas car tu y appelles une autre méthode qui n'existe pas (dataMapper.cardElement(), au lieu de dataMapper.getCardByElement()).

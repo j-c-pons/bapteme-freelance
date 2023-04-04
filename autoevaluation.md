@@ -1,0 +1,1 @@
+Je ne fais pas trop de mcd, c'était donc délicat pour moi de porter un jugement sur le rendu des élèves, d'autant que je suis plus familier avec la modélisation UML.
